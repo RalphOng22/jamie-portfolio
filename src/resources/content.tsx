@@ -1,11 +1,11 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Clubs, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Jamie",
-  lastName: "Kohchet-chua",
-  name: `Jamie Kohchet-chua`,
-  role: "Digital Marketer & Business Developer",
+  lastName: "Kohchet-Chua",
+  name: `Jamie Kohchet-Chua`,
+  role: "Passionate about Business Development and Brand Management",
   avatar: "/images/avatar.jpg",
   email: "jamiekc888@gmail.com",
   location: "Asia/Singapore", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -21,6 +21,11 @@ const newsletter: Newsletter = {
 const social: Social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
+  {
+    name: "TikTok",
+    icon: "tiktok",
+    link: "https://www.tiktok.com/@kyungsooey",
+  },
   {
     name: "LinkedIn",
     icon: "linkedin",
@@ -39,34 +44,36 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Driving Business Growth Through Strategic Marketing & Cross-Functional Leadership</>,
+  headline: <>Hi there! I'm Jamie.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">L'Oréal Brandstorm</strong>{" "}
+        <strong className="ml-4">Final Year Student @ Singapore Management University</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Top 8 Achievement
+          Marketing and Strategic Management Major
         </Text>
       </Row>
     ),
-    href: "/about#L'Oréal Brandstorm 2025",
+    href: "/work",
   },
   subline: (
     <>
-      I'm Jamie, an ASEAN Undergraduate Scholar with proven experience in business development
-      and strategic marketing across leading companies like Keppel, Unilever, and Shopee.
-      <br /> Currently pursuing my degree at Singapore Management University with a passion for driving measurable business impact.
+   Nice to meet you! I'm a final year student at SMU, with experience in multiple industries such as FMCG, Sustainability, and Tech. 
+   Welcome to my portfolio, where I showcase my professional journey, skills, and the impactful projects I've had the privilege to work on.
+   <br />
+   <br />
+   Take a look around to learn more about my experiences and achievements!
     </>
   ),
 };
 
-const about: About = {
-  path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+const work: About = {
+  path: "/work",
+  label: "Work",
+  title: `Work – ${person.name}`,
+  description: `Professional experience and background of ${person.name}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -83,9 +90,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Jamie is a dynamic and results-driven individual with a strong passion for digital marketing, business development, and internal strategy. As a marketing and strategy student from SMU with internship experiences at Keppel, Unilever, Shopee, and NIUM, she has demonstrated an exceptional ability to combine analytical thinking with creative execution, from leading regional market research to driving digital campaigns. She thrives in a fast-paced environment and pushes herself to learn as much as she can for her professional and personal growth.
-        <br /><br />
-        Beyond her technical skills, Jamie's collaborative spirit, genuine enthusiasm for storytelling, and passion for e-commerce and social media make her an excellent fit for strategic roles. She brings together strategic insight and creativity, backing her ideas with data-driven analysis and measurable impact.
+        Jamie is a dynamic and results-driven individual with a strong passion for business development, and internal strategy. 
+        With internship experiences at Keppel, Unilever, Shopee, and NIUM, she has demonstrated an exceptional ability to combine analytical 
+        thinking with creative execution, from leading regional market research to driving digital campaigns. She thrives in a fast-paced 
+        environment.
       </>
     ),
   },
@@ -207,7 +215,20 @@ const about: About = {
             Collaborated with the marketing team to boost influencer campaigns and KOL livestreams for 10 brands – boosting overall GMV, voucher redemptions and click-thru rate.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/internships/shopee.jpeg",
+            alt: "Shopee Account Management Internship",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/internships/shopee2.jpeg",
+            alt: "Shopee Business Development Work",
+            width: 16,
+            height: 9,
+          },
+        ],
       },
       {
         company: "NIUM (Instarem)",
@@ -244,7 +265,7 @@ const about: About = {
     institutions: [
       {
         name: "Singapore Management University",
-        description: <>Bachelor of Business Management, Major in Marketing and Strategic Management (Aug 2022 – Apr 2026). ASEAN Undergraduate Scholarship recipient for outstanding academic merit.</>,
+        description: <>Bachelor of Business Management, Major in Marketing and Strategic Management. ASEAN Undergraduate Scholarship recipient for outstanding academic merit.</>,
       },
     ],
   },
@@ -267,14 +288,7 @@ const about: About = {
             icon: "excel",
           },
         ],
-        images: [
-          {
-            src: "/images/ccas/bizcom.png",
-            alt: "Business Development Work",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         title: "Digital Marketing & Content Creation",
@@ -295,20 +309,7 @@ const about: About = {
             icon: "search",
           },
         ],
-        images: [
-          {
-            src: "/images/ccas/fintech.jpeg",
-            alt: "Digital Marketing Projects",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/ccas/fintech2.jpeg",
-            alt: "Content Creation Work",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         title: "Data Analysis & Tools",
@@ -332,6 +333,66 @@ const about: About = {
         images: [],
       },
     ],
+  },
+};
+
+const blog: Blog = {
+  path: "/blog",
+  label: "Blog",
+  title: "Writing about design and tech...",
+  description: `Read what ${person.name} has been up to recently`,
+  // Create new blog posts by adding a new .mdx file to app/blog/posts
+  // All posts will be listed on the /blog route
+};
+
+const projects: Work = {
+  path: "/projects",
+  label: "Projects",
+  title: `Projects – ${person.name}`,
+  description: `Case competitions and consulting projects by ${person.name}`,
+  // Create new project pages by adding a new .mdx file to app/projects/projects
+  // All projects will be listed on the /home and /projects routes
+};
+
+const projectsContent: About = {
+  path: "/projects",
+  label: "Projects",
+  title: `Projects – ${person.name}`,
+  description: `Case competitions and consulting projects by ${person.name}`,
+  tableOfContent: {
+    display: true,
+    subItems: false,
+  },
+  avatar: {
+    display: false,
+  },
+  calendar: {
+    display: false,
+    link: "https://cal.com",
+  },
+  intro: {
+    display: true,
+    title: "Projects & Achievements",
+    description: (
+      <>
+        A showcase of case competitions, consulting projects, and strategic initiatives that demonstrate analytical thinking, problem-solving skills, and business acumen.
+      </>
+    ),
+  },
+  work: {
+    display: false,
+    title: "Work Experience",
+    experiences: [],
+  },
+  studies: {
+    display: false,
+    title: "Education",
+    institutions: [],
+  },
+  technical: {
+    display: false,
+    title: "Technical Skills",
+    skills: [],
   },
   competitions: {
     display: true,
@@ -386,24 +447,6 @@ const about: About = {
       },
     ],
   },
-};
-
-const blog: Blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
-};
-
-const work: Work = {
-  path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Consulting and business development projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/work/projects
-  // All projects will be listed on the /home and /work routes
 };
 
 const gallery: Gallery = {
@@ -470,4 +513,133 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const clubs: Clubs = {
+  path: "/clubs",
+  label: "Clubs",
+  title: `Clubs & Activities – ${person.name}`,
+  description: `Co-curricular activities and leadership roles by ${person.name}`,
+  tableOfContent: {
+    display: true,
+    subItems: false,
+  },
+  avatar: {
+    display: true,
+  },
+  calendar: {
+    display: true,
+    link: "https://cal.com",
+  },
+  intro: {
+    display: true,
+    title: "Leadership & Community Involvement",
+    description: (
+      <>
+        Active participation in various student organizations and community initiatives, demonstrating leadership, teamwork, and commitment to creating positive impact within the university and broader community.
+      </>
+    ),
+  },
+  activities: {
+    display: true,
+    title: "Co-curricular Activities",
+    experiences: [
+      {
+        organization: "AIESEC in SMU",
+        timeframe: "Jan 2023 – Jan 2025",
+        role: "Vice President for Talent Management, President for She-Inspires Networking Event, Brand & Marketing Vice President for Youth Speak Forum",
+        achievements: [
+          <>
+            Directed and managed multiple departments, including logistics, partnerships, and event planning, while also spearheading the creative direction for various events, demonstrating leadership skills, conflict management, and critical thinking.
+          </>,
+          <>
+            Initiated weekly department meetings to plan and execute engaging team bonding activities, consistently earning 5/5 ratings from participants.
+          </>,
+          <>
+            Coordinated with at least 20 members across different departments to arrange weekly organisational meetings, competitions, and networking events ensuring their seamless execution – resulting in an increase in engagement and reach within the university.
+          </>,
+        ],
+        images: [
+          {
+            src: "/images/ccas/aiesec.jpeg",
+            alt: "AIESEC Leadership Role",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/ccas/aiesec2.jpeg",
+            alt: "AIESEC Vice President Activities",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/ccas/aiesec3.jpeg",
+            alt: "AIESEC Team Management",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/ccas/aiesec4.jpg",
+            alt: "AIESEC Networking Event",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/ccas/aiesec5.JPG",
+            alt: "AIESEC She-Inspires Event",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/ccas/aiesec6.jpeg",
+            alt: "AIESEC Youth Speak Forum",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        organization: "SMU International Connections (ICON)",
+        timeframe: "Feb 2023 – Sep 2023",
+        role: "Lead Marketing Director",
+        achievements: [
+          <>
+            Achieved an increase in accounts reached and boosted event turnout by 40%, showcasing teamwork, communication skills, and interpersonal skills.
+          </>,
+          <>
+            Created physical booths, information panels, and coordinated with outside vendors to showcase cultural diversity amongst 2000 individuals.
+          </>,
+        ],
+        images: [
+          {
+            src: "/images/ccas/icon.jpeg",
+            alt: "SMU ICON Diverse City Event",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        organization: "SMU BizCom",
+        timeframe: "Jan 2024 – Jan 2025",
+        role: "Business Development Executive",
+        achievements: [
+          <>
+            Coordinated with 10+ external partners in the fashion and beauty industry to provide deals and promotions to the entire University student population resulting in over 900 impressions on social media and an increase in revenue.
+          </>,
+          <>
+            Collaborated with 10+ companies and internal departments such as marketing and operations in organising two Welfare drives providing products and discounts to 4,000 SMU Students, resulting in a 95% satisfaction rate.
+          </>,
+        ],
+        images: [
+          {
+            src: "/images/ccas/bizcom.png",
+            alt: "SMU BizCom Business Development",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+    ],
+  },
+};
+
+export { person, social, newsletter, home, work, blog, projects, projectsContent, clubs, gallery };

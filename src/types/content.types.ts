@@ -265,3 +265,67 @@ export interface Gallery extends BasePageConfig {
     orientation: string;
   }>;
 }
+
+/**
+ * Clubs page configuration.
+ * @description Configuration for the Clubs page, including co-curricular activities and leadership roles.
+ */
+export interface Clubs extends BasePageConfig {
+  /** Table of contents configuration */
+  tableOfContent: {
+    /** Whether to display the table of contents */
+    display: boolean;
+    /** Whether to show sub-items in the table of contents */
+    subItems: boolean;
+  };
+  /** Avatar section configuration */
+  avatar: {
+    /** Whether to display the avatar */
+    display: boolean;
+  };
+  /** Calendar section configuration */
+  calendar: {
+    /** Whether to display the calendar */
+    display: boolean;
+    /** Link to the calendar */
+    link: string;
+  };
+  /** Introduction section */
+  intro: {
+    /** Whether to display the introduction */
+    display: boolean;
+    /** Title of the introduction section */
+    title: string;
+    /** Description of the introduction section */
+    description: React.ReactNode;
+  };
+  /** Co-curricular activities section */
+  activities: {
+    /** Whether to display activities section */
+    display: boolean;
+    /** Title for the activities section */
+    title: string;
+    /** List of activities */
+    experiences: Array<{
+      /** Organization name */
+      organization: string;
+      /** Timeframe of involvement */
+      timeframe: string;
+      /** Role or position */
+      role: string;
+      /** Achievements and responsibilities */
+      achievements: React.ReactNode[];
+      /** Images related to the activity */
+      images?: Array<{
+        /** Image source path */
+        src: string;
+        /** Image alt text */
+        alt: string;
+        /** Image width ratio */
+        width: number;
+        /** Image height ratio */
+        height: number;
+      }>;
+    }>;
+  };
+}

@@ -4,9 +4,11 @@ export {
   social,
   newsletter,
   home,
-  about,
-  blog,
   work,
+  blog,
+  projects,
+  projectsContent,
+  clubs,
   gallery,
 } from "./content";
 

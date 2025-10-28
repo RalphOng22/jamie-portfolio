@@ -10,11 +10,13 @@ import {
   Schema,
   Meta,
   Line,
+  IconButton,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
+import { home, work, person, baseURL, routes, social } from "@/resources";
 import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { WorkExperienceCarousel } from "@/components/home/WorkExperienceCarousel";
+import { CaseCompetitionsClubsCarousel } from "@/components/home/CaseCompetitionsClubsCarousel";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -38,7 +40,7 @@ export default function Home() {
         image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}${about.path}`,
+          url: `${baseURL}${work.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
@@ -79,14 +81,14 @@ export default function Home() {
             <Button
               id="about"
               data-border="rounded"
-              href={about.path}
+              href={work.path}
               variant="secondary"
               size="m"
               weight="default"
               arrowIcon
             >
               <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
+                {work.avatar.display && (
                   <Avatar
                     marginRight="8"
                     style={{ marginLeft: "-0.75rem" }}
@@ -94,14 +96,32 @@ export default function Home() {
                     size="m"
                   />
                 )}
-                {about.title}
+                {work.title}
               </Row>
             </Button>
+          </RevealFx>
+          <RevealFx paddingTop="16" delay={0.5} horizontal="center">
+            <Row gap="12" horizontal="center">
+              {social.slice(0, 3).map((item) => (
+                <IconButton
+                  key={item.name}
+                  href={item.link}
+                  icon={item.icon}
+                  variant="ghost"
+                  size="s"
+                />
+              ))}
+            </Row>
           </RevealFx>
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Column fillWidth gap="m">
+          <Heading as="h2" variant="display-strong-s">
+            Work Experience
+          </Heading>
+          <WorkExperienceCarousel experiences={work.work.experiences} />
+        </Column>
       </RevealFx>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
@@ -123,7 +143,40 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
+      <RevealFx translateY="16" delay={0.8}>
+        <Column fillWidth gap="m">
+          <Heading as="h2" variant="display-strong-s">
+            Case Competitions & Clubs
+          </Heading>
+          <CaseCompetitionsClubsCarousel achievements={[
+            {
+              title: "Top 8 in L'Oréal Brandstorm 2025",
+              subtitle: "Case Competition Achievement",
+              image: "/images/case-competitions/loreal5.jpeg",
+              link: "/projects#L'Oréal Brandstorm 2025",
+              backgroundPosition: "75% center"
+            },
+            {
+              title: "Vice President for Talent Management",
+              subtitle: "@ AIESEC in SMU",
+              image: "/images/ccas/aiesec5.JPG",
+              link: "/clubs#AIESEC in SMU"
+            },
+            {
+              title: "Lead Marketing Director",
+              subtitle: "@ SMU International Connections (ICON)",
+              image: "/images/ccas/icon.jpeg",
+              link: "/clubs#SMU International Connections (ICON)"
+            },
+            {
+              title: "Business Development Executive",
+              subtitle: "@ SMU BizCom",
+              image: "/images/ccas/bizcom.png",
+              link: "/clubs#SMU BizCom"
+            }
+          ]} />
+        </Column>
+      </RevealFx>
       <Mailchimp />
     </Column>
   );
